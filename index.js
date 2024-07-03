@@ -6,10 +6,12 @@ const app = express();
 
 // MongoDB connection
 async function main() {
-  await mongoose.connect("mongodb://localhost:27017/e-commerce");
+  const uri = "mongodb+srv://569manish2020:P0osmzEQ9lJHlYYf@cluster0.zmg14sv.mongodb.net/e-commerce?retryWrites=true&w=majority&appName=Cluster0";
+  await mongoose.connect(uri);
+
   console.log("database connected");
 }
-main().catch((err) => console.log(err));
+main().catch((err) => console.log("Database connection error:", err));
 
 app.use(express.json());
 app.use(cors());
